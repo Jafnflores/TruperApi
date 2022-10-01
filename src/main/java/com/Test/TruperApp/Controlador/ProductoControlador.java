@@ -1,0 +1,54 @@
+
+
+package com.Test.TruperApp.Controlador;
+
+import com.Test.TruperApp.Modelos.Producto;
+import com.Test.TruperApp.Servicios.ProductoServicio;
+import java.util.List;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+
+
+@RestController
+@RequestMapping("/Producto")
+public class ProductoControlador {
+
+    private final ProductoServicio productoservicio;
+
+    public ProductoControlador(ProductoServicio productoservicio) {
+        this.productoservicio = productoservicio;
+    }
+    
+    
+    @PostMapping
+     public Producto guardarProducto(@RequestBody Producto producto){
+      return this.productoservicio.guardarProducto(producto);
+    }
+    
+    
+    @GetMapping
+    public List<Producto> obtenerProductos(){
+      return this.productoservicio.obtenerProductos();
+    }
+         
+    
+    @DeleteMapping(value="/{idP}")
+    public void borrarProducto(@PathVariable("idP") int idP){
+      this.productoservicio.borrarProducto(idP);
+    }
+
+    @PutMapping("/actualiza")
+   public Producto actualizaProducto(@RequestBody Producto producto)
+   {
+      return this.productoservicio.guardarProducto(producto);
+   }
+    
+}

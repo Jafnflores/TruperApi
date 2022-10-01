@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Demo Truper</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <link href="css/videojuegos.css" rel="stylesheet">
+    </head>
+    <body>
+
+
+
+
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" th:href="@{/}">
+                    <img th:href="@{/AltaDeAlmacen}" src="imagenes/icono.png" alt="TRUPER" width="30" height="24" class="d-inline-block align-text-top">
+                    TRUPER (Almacenes)
+                </a>
+
+            </div>
+        </nav>
+
+
+        <div class="container">
+
+            <div class="row">
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                id
+                            </th>
+                            <th>
+                                Nombre
+                            </th>
+                            <th>
+                                Ciudad
+                            </th>
+                        </tr>                        
+                    </thead>
+                    
+                    <tbody>
+                        <tr th:each = "datoAlmac : ${almac}">
+                            <th th:text="${datoAlmac.id}">
+                                id
+                            </th>
+                            <th th:text="${datoAlmac.nombre}">
+                                Nombre
+                            </th>
+                            <th th:text="${datoAlmac.ciudad}">
+                                Ciudad
+                            </th>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>        
+        </div>
+
+
+
+    </body>
+</html>
