@@ -36,7 +36,7 @@ public class SecurityConfig {
     public UserDetailsService userDetailsService(){
     
         var uds = new InMemoryUserDetailsManager();
-        uds.createUser(User.builder().username("truper").password("{noop}user").roles("USER").build());
+        uds.createUser(User.builder().username("truper").password("{noop}truper").roles("USER").build());
         uds.createUser(User.builder().username("admin").password("{noop}admin").roles("ADMIN","USER").build());
         return uds;
     }    

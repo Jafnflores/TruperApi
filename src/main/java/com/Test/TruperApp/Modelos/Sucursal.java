@@ -4,7 +4,6 @@
 package com.Test.TruperApp.Modelos;
 
 import java.util.List;
-import javax.persistence.Entity;
 import javax.persistence.*;
 
 

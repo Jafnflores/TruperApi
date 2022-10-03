@@ -24,22 +24,26 @@ public class OrdenServicio {
     
     public List<Orden> obtenerOrdenes(){
         
-      return this.ordenrepositorio.findAll();
+      return ordenrepositorio.findAll();
     
     }
     
     
     public Orden guardarOrdenes(Orden orden){
         
-      return this.ordenrepositorio.save(orden);
+      return ordenrepositorio.save(orden);
     
     }
     
     
     public List<Orden> obtenerPorSucursal(int numID){
-      return this.ordenrepositorio.ordenesPorSucursal(numID);
+      return ordenrepositorio.ordenesPorSucursal(numID);
     }
     
+    
+    public void borrarOrden(int orden_id){
+       ordenrepositorio.deleteById(orden_id);
+    }
     
     
 }

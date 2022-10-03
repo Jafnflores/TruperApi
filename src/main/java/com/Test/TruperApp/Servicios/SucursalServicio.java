@@ -19,15 +19,18 @@ public class SucursalServicio {
     
     
     public List<Sucursal> obtenerSucursales(){
-        return this.sucursalrepositorio.findAll();
-              
+        return this.sucursalrepositorio.findAll();          
     }
-    
     
     
     public Sucursal guardarSucursal(Sucursal sucursal){
     
         return this.sucursalrepositorio.save(sucursal);
     }
+    
+    public void borrarSucursal(int sucursal_id){
+       sucursalrepositorio.deleteById(sucursal_id);
+    }
+    
     
 }

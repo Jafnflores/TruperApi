@@ -1,16 +1,12 @@
 
-
 package com.Test.TruperApp.Controlador;
 
 import com.Test.TruperApp.Modelos.Orden;
 import com.Test.TruperApp.Servicios.OrdenServicio;
 import java.util.List;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 
 @RestController
 @RequestMapping("/Orden")
@@ -24,19 +20,25 @@ public class OrdenControlador {
     
     @GetMapping()
     public List<Orden> obtenerOrdenes(){    
-      return this.ordenservicio.obtenerOrdenes();
+      return ordenservicio.obtenerOrdenes();
     } 
    
     
     @GetMapping("/porsucursal")
     public List<Orden> obtenerOrdenesPorSucursal(int numID){    
-      return this.ordenservicio.obtenerPorSucursal(numID);
+      return ordenservicio.obtenerPorSucursal(numID);
     }
     
     
     @PostMapping()
     public Orden guardarOrden(@RequestBody Orden orden){
-      return this.ordenservicio.guardarOrdenes(orden);
+      return ordenservicio.guardarOrdenes(orden);
+    }
+    
+    @PutMapping(value = "/borrarOrden/{orden_id}")
+    public void borrarOrden(@PathVariable ("orden_id") int orden_id){
+      ordenservicio.borrarOrden(orden_id);
+    
     }
     
     

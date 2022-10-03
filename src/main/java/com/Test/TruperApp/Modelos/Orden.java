@@ -12,6 +12,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "ORDENES")
 public class Orden {
+    
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,20 +24,22 @@ public class Orden {
     
     @OneToMany
     private List<Producto> producto;
-
-    public List<Producto> getProducto() {
-        return producto;
-    }
-
-    public void setProducto(List<Producto> producto) {
-        this.producto = producto;
-    }
     
     @Column(nullable=false)
     private Date fecha;
 
     @Column(nullable=false)
     private double total;
+    
+    
+    public List<Producto> getProducto() {
+        return producto;
+    }
+
+    public void setProducto(List<Producto> producto) {
+        this.producto = producto;
+    }   
+    
 
     public Integer getOrden_id() {
         return orden_id;
@@ -44,11 +47,7 @@ public class Orden {
 
     public void setOrden_id(Integer orden_id) {
         this.orden_id = orden_id;
-    }
-
-   
-     
-  
+    }  
         
     public Date getFecha() {
         return fecha;
@@ -73,9 +72,6 @@ public class Orden {
     public void setSucursal(Sucursal sucursal) {
         this.sucursal = sucursal;
     }
-    
-   
-   
     
     
 }
