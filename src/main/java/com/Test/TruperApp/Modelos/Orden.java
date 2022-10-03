@@ -22,7 +22,7 @@ public class Orden {
     @ManyToOne
     private Sucursal sucursal; 
     
-    @OneToMany
+    @ManyToMany
     private List<Producto> producto;
     
     @Column(nullable=false)
