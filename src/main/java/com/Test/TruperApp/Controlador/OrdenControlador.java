@@ -35,7 +35,7 @@ public class OrdenControlador {
       return ordenservicio.guardarOrdenes(orden);
     }
     
-    @PutMapping(value = "/borrarOrden/{orden_id}")
+    @DeleteMapping(value = "/borrarOrden/{orden_id}")
     public void borrarOrden(@PathVariable ("orden_id") int orden_id){
       ordenservicio.borrarOrden(orden_id);
     
